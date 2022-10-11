@@ -1,0 +1,55 @@
+accelerator:
+  displayName: Surfers Python-FastAPI Rest Accelerator
+  description: Contains the Surfers system Rest API scafolding for a new module
+  iconUrl: https://raw.githubusercontent.com/davlloyd/surfers-fastapi-accelerator/main/main/static/images/surfing-rest-icon.png
+  tags:
+  - surferslookout
+  - python
+  options:
+  - name: repositoryPrefix
+    inputType: text
+    label: Prefix for the container image repository
+    defaultValue: docker.io/<yourname>
+    required: true
+
+engine:
+  merge:
+  - include: [ "**/*" ]
+    exclude: [ "config/*.yaml", "Tiltfile", "README.md", "catalog/*.yaml" ]
+
+  - include: [ "Tiltfile" ]
+    chain:
+    - type: ReplaceText
+      substitutions:
+      - text: surfersaccelerator
+        with: "#artifactId.toLowerCase()"
+    - type: ReplaceText
+      substitutions:
+      - text: docker.io/project
+        with: "#repositoryPrefix"
+
+  - include: [ "config/*.yaml" ]
+    chain:
+    - type: ReplaceText
+      substitutions:
+      - text: ": surfersfastapiaccelerator"
+        with: "': ' + #artifactId.toLowerCase()"
+      - text: ": surfers-fastapi-accelerator"
+        with: "': ' + #artifactId.toLowerCase()"
+
+  - include: [ "README.md" ]
+    chain:
+    - type: ReplaceText
+      substitutions:
+      - text: surfersfastapiaccelerator
+        with: "#artifactId"
+      - text: surfers-fastapi-accelerator
+        with: "#artifactId"
+  - include: [ "catalog/*.yaml" ]
+    chain:
+    - type: ReplaceText
+      substitutions:
+      - text: surfersfastapiaccelerator
+        with: "#artifactId"
+      - text: surfers-fastapi-accelerator
+        with: "#artifactId"
