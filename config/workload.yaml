@@ -1,7 +1,7 @@
 apiVersion: carto.run/v1alpha1
 kind: Workload
 metadata:
-  name: surfers-fastapi-acclerator
+  name: surfers-fastapi-accelerator
   labels:
     apps.tanzu.vmware.com/workload-type: web
     app.kubernetes.io/part-of: surferslookout
@@ -12,6 +12,10 @@ spec:
   params:
   - name: clusterBuilder
     value: full
+  - name: git_user_email
+    value: gitopsemailaddress
+  - name: git_user_name
+    value: gitopsaccountname
   - name: annotations
     value:
       autoscaling.knative.dev/min-scale: "1"
@@ -30,10 +34,6 @@ spec:
       owner: group:surfers-crew
       system: surferslookout
       description: "Surferslookout rest api accelerator"
-  - name: git_user_email
-    value: davidlloyd0@gmail.com
-  - name: git_user_name
-    value: davlloyd
   source:
     git:
       url: https://github.com/davlloyd/surfers-fastapi-acclerator
