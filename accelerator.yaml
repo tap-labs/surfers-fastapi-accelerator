@@ -42,6 +42,10 @@ engine:
       substitutions:
       - text: surfersfastapiaccelerator
         with: "#artifactId"
+      - text: surfers-fastapi-accelerator
+        with: "#artifactId"
+      - text: Surfers-FastAPI-Accelerator
+        with: "#artifactId"
 
 
   - include: [ "Tiltfile" ]
@@ -49,9 +53,11 @@ engine:
     - type: ReplaceText
       substitutions:
       - text: surfersfastapiaccelerator
-        with: "#artifactId.toLowerCase()"
-      - text: docker.io/project
-        with: "#repositoryPrefix"
+        with: "#artifactId"
+      - text: surfers-fastapi-accelerator
+        with: "#artifactId"
+      - text: Surfers-FastAPI-Accelerator
+        with: "#artifactId"
 
   - include: [ "config/*.yaml" ]
     chain:
@@ -81,6 +87,8 @@ engine:
       - text: surfersfastapiaccelerator
         with: "#artifactId"
       - text: surfers-fastapi-accelerator
+        with: "#artifactId"
+      - text: Surfers-FastAPI-Accelerator
         with: "#artifactId"
 
   - include: [ "catalog/*.yaml" ]
