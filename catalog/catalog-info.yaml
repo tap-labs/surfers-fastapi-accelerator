@@ -4,7 +4,6 @@ apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
   name: surfers-fastappi-accelerator
-  namespace: alpha
   description: Surfers System Accelerator for creating REST API Gateways
   tags:
     - app-accelerator
@@ -20,5 +19,5 @@ spec:
   owner: group:surfers-crew
   system: surfers-system
   providesApis:
-    - alpha/surfers-fastappi-accelerator-tap1.tanzu.rocks # need to replace with the correct context for the deployment
+    - surfers-fastappi-accelerator-tap1.tanzu.rocks # need to replace with the correct context for the deployment
     # - <namespace>/<name>-<tap root dns> is the syntax
