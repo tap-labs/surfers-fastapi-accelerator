@@ -34,7 +34,7 @@ accelerator:
 engine:
   merge:
   - include: [ "**/*" ]
-    exclude: [ "config/*.yaml", "Tiltfile", "README.md", "catalog/*.yaml", "docs/*.md" ]
+    exclude: [ "config/*.yaml", "Tiltfile", "README.md", "catalog/*.yaml", "docs/*.md", ".vscode/*.json" ]
 
   - include: [  "docs/*.md" ]
     chain:
@@ -47,6 +47,20 @@ engine:
       - text: Surfers-FastAPI-Accelerator
         with: "#artifactId"
 
+  - include: [ ".vscode/*.json" ]
+    chain:
+    - type: ReplaceText
+      substitutions:
+      - text: "FASTAPI Accelerator"
+        with: "#artifactId"
+      - text: surfersfastapiaccelerator
+        with: "#artifactId"
+      - text: surfers-fastapi-accelerator
+        with: "#artifactId"
+      - text: Surfers-FastAPI-Accelerator
+        with: "#artifactId"
+      - text: docker.io/project
+        with: "#repositoryPrefix"
 
   - include: [ "Tiltfile" ]
     chain:
@@ -58,6 +72,8 @@ engine:
         with: "#artifactId"
       - text: Surfers-FastAPI-Accelerator
         with: "#artifactId"
+      - text: "docker.io/project"
+        with: "#repositoryPrefix"
 
   - include: [ "config/*.yaml" ]
     chain:
