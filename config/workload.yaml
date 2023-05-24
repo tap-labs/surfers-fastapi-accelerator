@@ -36,6 +36,6 @@ spec:
       description: "Surferslookout rest api accelerator"
   source:
     git:
-      url: https://github.com/davlloyd/surfers-fastapi-acclerator
+      url: https://github.com/tap-labs/surfers-fastapi-acclerator
       ref:
         branch: main

@@ -1,7 +1,7 @@
 accelerator:
   displayName: Surfers Python-FastAPI Restful Accelerator
   description: Contains the Surfers system Restful service scafolding
-  iconUrl: https://raw.githubusercontent.com/davlloyd/surfers-fastapi-accelerator/main/main/static/images/surfing-rest-icon.png
+  iconUrl: https://raw.githubusercontent.com/tap-labs/surfers-fastapi-accelerator/main/main/static/images/surfing-rest-icon.png
   tags:
   - surferslookout
   - python
@@ -80,7 +80,7 @@ engine:
     - type: ReplaceText
       condition: "#bsGitRepository != null"
       substitutions:
-      - text: "https://github.com/davlloyd/surfers-fastapi-accelerator"
+      - text: "https://github.com/tap-labs/surfers-fastapi-accelerator"
         with: "'https://' + #bsGitRepository.substring(0, #bsGitRepository.indexOf('?')) + '/' + #bsGitRepository.substring((#bsGitRepository.indexOf('=')+1), #bsGitRepository.indexOf('&')) + '/' + #bsGitRepository.substring((#bsGitRepository.indexOf('repo=')+5))"
     - type: ReplaceText
       condition: "#gitopsEnabled"
